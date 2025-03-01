@@ -38,3 +38,7 @@ Route::get('logout', [authentikasicontroller::class, 'logout'])->name('actionlog
 Route::get('produk', [produkcontroller::class, 'produk'])->name('produk')->middleware('auth');
 Route::get('produktambah', [produkcontroller::class, 'produktambah'])->name('produktambah')->middleware('auth');
 Route::post('produkproses', [produkcontroller::class, 'produkproses'])->name('produkproses')->middleware('auth');
+
+Route::get('editproduk/{id}', [produkcontroller::class, 'editproduk'])->name('editproduk')->middleware('auth');
+Route::post('editproses', [produkcontroller::class, 'editproses'])->name('editproses')->middleware('auth');
+Route::get('hapus/{id}', [produkcontroller::class, 'hapus'])->name('hapus')->middleware('auth');
