@@ -42,3 +42,4 @@ Route::post('produkproses', [produkcontroller::class, 'produkproses'])->name('pr
 Route::get('editproduk/{id}', [produkcontroller::class, 'editproduk'])->name('editproduk')->middleware('auth');
 Route::post('editproses', [produkcontroller::class, 'editproses'])->name('editproses')->middleware('auth');
 Route::get('hapus/{id}', [produkcontroller::class, 'hapus'])->name('hapus')->middleware('auth');
+Route::get('cetak', [produkcontroller::class, 'cetak'])->name('cetak')->middleware('auth');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Produk;
 use Session;
+use PDF;
 class produkcontroller extends Controller
 {
     public function produk()
@@ -141,6 +142,13 @@ public function hapus($id)
 
     return redirect()->route('produk');
 }
+public function cetak()
+{
+  $produk = Produk::select('*')
+            ->get();
 
+  $pdf = PDF::loadView('cetak', ['produk' => $produk]);
+  return $pdf->stream('Laporan-Data-produk.pdf');
+}
 
 }

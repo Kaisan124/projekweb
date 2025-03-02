@@ -3,6 +3,7 @@
 @section('konten')
 <h3>Tampil Data Produk</h3>
 <a class="btn btn-success" href="{{ route('produktambah') }}"><i class="fa fa-plus"></i> Produk tambah</a><br><br>
+<a class="btn btn-default" href="{{route('cetak')}}" target="_blank"><i class="fa fa-print"></i> Cetak PDF</a>
 
 <!-- Tabel Data Produk -->
 <table class="table table-bordered table-hover">
