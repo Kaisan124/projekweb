@@ -25,6 +25,8 @@
               <a class="navbar-brand" href="{{route('home')}}">Dashboard</a>
               <a class="navbar-brand" href="{{route('portal')}}">Portal</a>
               <a class="navbar-brand" href="{{route('produk')}}">Produk</a>
+              <a class="navbar-brand" href="{{route('mapel')}}">mapel</a>
+
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Produk;
 use Session;
 use PDF;
+use DataTables;
 class produkcontroller extends Controller
 {
     public function produk()
