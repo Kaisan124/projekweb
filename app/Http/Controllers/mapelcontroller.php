@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Mapel;
+use App\Models\Produk;
 use Session;
 use PDF;
 use DataTables;

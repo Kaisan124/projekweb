@@ -21,6 +21,7 @@ return view('register');
     {
         $user = User::create([
             'username' => $minta->username,
+            'role' => $minta->role,
             'password' => Hash::make($minta->password),
             'alamat' => $minta->alamat,
             'handphone' => $minta->handphone,

@@ -22,9 +22,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
+              @if(Auth::user()->role === 'admin')
               <a class="navbar-brand" href="{{route('home')}}">Dashboard</a>
               <a class="navbar-brand" href="{{route('portal')}}">Portal</a>
               <a class="navbar-brand" href="{{route('produk')}}">Produk</a>
+              @endif
+              
               <a class="navbar-brand" href="{{route('mapel')}}">mapel</a>
 
             </div>

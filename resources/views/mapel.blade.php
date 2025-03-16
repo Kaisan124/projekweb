@@ -16,6 +16,8 @@
     <th>foto mapel</th>
     <th>UTS</th>
     <th>UAS</th>
+    
+
     <th>Aksi</th>
   </tr>
   @foreach($mapel as $s)
@@ -26,7 +28,6 @@
     <td>{{ $s->catatan }}</td>
     <td>{{ $s->nama_guru }}</td>
     
-
     
     <!-- Tampilkan gambar menggunakan <img> -->
     <td>

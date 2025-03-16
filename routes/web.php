@@ -31,21 +31,21 @@ Route::post('/registerproses', [authentikasicontroller::class, 'registerproses']
 Route::get('/', [authentikasicontroller::class, 'login'])->name('login');
 Route::post('/loginproses', [authentikasicontroller::class, 'loginproses'])->name('loginproses');
 
-Route::get('home', [authentikasicontroller::class, 'home'])->name('home')->middleware('auth');
-Route::get('portal', [authentikasicontroller::class, 'portal'])->name('portal')->middleware('auth');
+Route::get('home', [authentikasicontroller::class, 'home'])->name('home')->middleware('auth','admin');
+Route::get('portal', [authentikasicontroller::class, 'portal'])->name('portal')->middleware('auth','admin');
 
 
 Route::get('logout', [authentikasicontroller::class, 'logout'])->name('actionlogout')->middleware('auth');
 
-Route::get('produk', [produkcontroller::class, 'produk'])->name('produk')->middleware('auth');
+Route::get('produk', [produkcontroller::class, 'produk'])->name('produk')->middleware('auth','admin');
 
-Route::get('produktambah', [produkcontroller::class, 'produktambah'])->name('produktambah')->middleware('auth');
-Route::post('produkproses', [produkcontroller::class, 'produkproses'])->name('produkproses')->middleware('auth');
+Route::get('produktambah', [produkcontroller::class, 'produktambah'])->name('produktambah')->middleware('auth','admin');
+Route::post('produkproses', [produkcontroller::class, 'produkproses'])->name('produkproses')->middleware('auth','admin');
 
-Route::get('editproduk/{id}', [produkcontroller::class, 'editproduk'])->name('editproduk')->middleware('auth');
-Route::post('editproses', [produkcontroller::class, 'editproses'])->name('editproses')->middleware('auth');
-Route::get('hapusproduk/{id}', [produkcontroller::class, 'hapusproduk'])->name('hapusproduk')->middleware('auth');
-Route::get('cetak', [produkcontroller::class, 'cetak'])->name('cetak')->middleware('auth');
+Route::get('editproduk/{id}', [produkcontroller::class, 'editproduk'])->name('editproduk')->middleware('auth','admin');
+Route::post('editproses', [produkcontroller::class, 'editproses'])->name('editproses')->middleware('auth','admin');
+Route::get('hapusproduk/{id}', [produkcontroller::class, 'hapusproduk'])->name('hapusproduk')->middleware('auth','admin');
+Route::get('cetak', [produkcontroller::class, 'cetak'])->name('cetak')->middleware('auth','admin');
 
 //mapel
 Route::get('mapel', [mapelcontroller::class, 'mapel'])->name('mapel')->middleware('auth');

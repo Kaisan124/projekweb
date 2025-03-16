@@ -106,6 +106,10 @@
                 <input type="text" id="username" name="username" placeholder="Masukkan nama pengguna" required>
             </div>
             <div class="form-group">
+                <label for="role">Role</label>
+                <input type="text" id="role" name="role" placeholder="Role" required>
+            </div>
+            <div class="form-group">
                 <label for="alamat">alamat </label>
                 <input type="text" id="alamat" name="alamat" placeholder="Masukkan alamat " required>
             </div>
