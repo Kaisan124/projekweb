@@ -24,6 +24,7 @@ class mapelcontroller extends Controller
             'mapelnames' =>$mapelnames,
             'hari' => $hari,
 
+
         ]);
     }
     public function mapeltambah()
@@ -62,7 +63,10 @@ class mapelcontroller extends Controller
         'hari' => $request->hari,
         'catatan' => $request->catatan,
         'nama_guru' => $request->nama_guru,
-        'foto_mapel' => $fotoPath, // Simpan path gambar yang relatif
+        'foto_mapel' => $fotoPath, // Simpan path gambar yang relatif]\
+        'uts' => $request->uts,
+        'uas' => $request->uas,
+
     ]);
 
     // Redirect ke halaman produk
@@ -130,12 +134,15 @@ public function editmapelproses(Request $request)
         'catatan' => $request->catatan,
         'nama_guru' => $request->nama_guru,
         'foto_mapel' => $fotoPath, // Simpan gambar yang baru (atau yang lama)
+        'uts' => $request->uts,
+        'hari' => $request->hari,
+        'uas' => $request->uas,
     ]);
 
     // Redirect kembali ke halaman produk
     return redirect()->route('mapel')->with('success', 'mapel berhasil diperbarui');
 }
-public function hapus($id)
+public function hapusmapel($id)
 {
     $mapel = Mapel::where('id', $id)
               ->delete();

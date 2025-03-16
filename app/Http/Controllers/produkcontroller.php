@@ -136,7 +136,7 @@ public function editproses(Request $request)
     // Redirect kembali ke halaman produk
     return redirect()->route('produk')->with('success', 'Produk berhasil diperbarui');
 }
-public function hapus($id)
+public function hapusproduk($id)
 {
     $produk = Produk::where('id', $id)
               ->delete();

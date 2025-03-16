@@ -38,7 +38,7 @@
 
     <td>
       <a href="editproduk/{{ $s->id }}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
-      <a href="/hapus/{{ $s->id }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+      <a href="/hapusproduk/{{ $s->id }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
     </td>
   </tr>
   @endforeach

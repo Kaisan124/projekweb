@@ -39,9 +39,19 @@
         <label>Foto mapel Sebelumnya</label><br>
         <img src="{{ asset('storage/mapel/'.$mapel->foto_mapel) }}" alt="Foto mapel" width="100" height="100">
     </div>
+    <div class="form-group">
+        <label for="uts">Uts</label>
+        <input type="text" name="uts" id="uts" class="form-control" value="{{ $mapel->uts }}" required>
+    </div>
+    <div class="form-group">
+        <label for="uas">Uas</label>
+        <input type="text" name="uas" id="uas" class="form-control" value="{{ $mapel->uas }}" required>
+    </div>
 
     <button type="submit" class="btn btn-primary">Update mapel</button>
-    <a href="{{ route('mapel') }}" class="btn btn-secondary">Batal</a>
+    <a href="{{ route('mapel') }}" class="btn btn-secondary">Batal</
+
+    
 </form>
 
 @endsection

@@ -14,7 +14,8 @@
     <th>catatan</th>
     <th>nama guru</th>
     <th>foto mapel</th>
-    
+    <th>UTS</th>
+    <th>UAS</th>
     <th>Aksi</th>
   </tr>
   @foreach($mapel as $s)
@@ -25,15 +26,18 @@
     <td>{{ $s->catatan }}</td>
     <td>{{ $s->nama_guru }}</td>
     
+
+    
     <!-- Tampilkan gambar menggunakan <img> -->
     <td>
         <img src="{{ asset('storage/mapel/'.$s->foto_mapel) }}" alt="foto mapel" width="100" height="100">
     </td> 
 
-   
+    <td>{{ $s->uts}}</td>
+    <td>{{ $s->uas}}</td>
     <td>
       <a href="editmapel/{{ $s->id }}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
-      <a href="/hapus/{{ $s->id }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+      <a href="/hapusmapel/{{ $s->id }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
     </td>
   </tr>
   @endforeach

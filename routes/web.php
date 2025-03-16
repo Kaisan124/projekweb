@@ -44,7 +44,7 @@ Route::post('produkproses', [produkcontroller::class, 'produkproses'])->name('pr
 
 Route::get('editproduk/{id}', [produkcontroller::class, 'editproduk'])->name('editproduk')->middleware('auth');
 Route::post('editproses', [produkcontroller::class, 'editproses'])->name('editproses')->middleware('auth');
-Route::get('hapus/{id}', [produkcontroller::class, 'hapus'])->name('hapus')->middleware('auth');
+Route::get('hapusproduk/{id}', [produkcontroller::class, 'hapusproduk'])->name('hapusproduk')->middleware('auth');
 Route::get('cetak', [produkcontroller::class, 'cetak'])->name('cetak')->middleware('auth');
 
 //mapel
@@ -55,5 +55,5 @@ Route::post('mapelproses', [mapelcontroller::class, 'mapelproses'])->name('mapel
 
 Route::get('editmapel/{id}', [mapelcontroller::class, 'editmapel'])->name('editmapel')->middleware('auth');
 Route::post('editmapelproses', [mapelcontroller::class, 'editmapelproses'])->name('editmapelproses')->middleware('auth');
-Route::get('hapus/{id}', [mapelcontroller::class, 'hapus'])->name('hapus')->middleware('auth');
+Route::get('hapusmapel/{id}', [mapelcontroller::class, 'hapusmapel'])->name('hapusmapel')->middleware('auth');
 Route::get('cetakmapel', [mapelcontroller::class, 'cetakmapel'])->name('cetakmapel')->middleware('auth');

@@ -24,6 +24,14 @@
     <label>Foto Mapel</label>
     <input type="file" name="foto_mapel" class="form-control" accept="image/jpeg,image/png" required=""> <!-- Ubah menjadi input file -->
   </div>
+  <div class="form-group">
+    <label>UTS</label>
+    <input type="number" name="uts" rows="3" class="form-control" placeholder="UTS" required=""></textarea>
+  </div>
+  <div class="form-group">
+    <label>UAS</label>
+    <input type="number" name="uas" rows="3" class="form-control" placeholder="UAS" required=""></textarea>
+  </div>
   <div class="form-group text-right">
     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan Data</button>
   </div>

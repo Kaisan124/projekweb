@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('catatan');
             $table->string('nama_guru');
             $table->string('foto_mapel');
+            $table->string('uts');
+            $table->string('uas');
             $table->string('updated_at');
             $table->string('created_at');
 
