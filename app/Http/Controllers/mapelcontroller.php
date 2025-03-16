@@ -33,15 +33,15 @@ class mapelcontroller extends Controller
     public function mapelproses(Request $request)
 {
     // Validasi input
-    $request->validate([
-        'nama_mapel' => 'required|string|max:255',
-        'hari' => 'required|numeric',
-        'catatan' => 'required|string',
-        'nama_guru' => 'required|string',
-        'foto_mapel' => 'required|image|mimes:jpg,jpeg,png|max:2048', // Validasi gambar
-    ]);
+    // $request->validate([
+    //     'nama_mapel' => 'required|string|max:255',
+    //     'hari' => 'required|numeric',
+    //     'catatan' => 'required|string',
+    //     'nama_guru' => 'required|string',
+    //     'foto_mapel' => 'required|image|mimes:jpg,jpeg,png|max:2048', // Validasi gambar
+    // ]);
 
-    // Proses upload gambar
+    // // Proses upload gambar
     if ($request->hasFile('foto_mapel')) {
         // Ambil file gambar
         $foto = $request->file('foto_mapel');
@@ -84,13 +84,13 @@ public function editmapel($id)
 public function editmapelproses(Request $request)
 {
     // Validasi input
-    $request->validate([
-        'nama_mapel' => 'required|string|max:255',
-        'hari' => 'required|numeric',
-        'catatan' => 'required|integer',
-        'nama_guru' => 'required|string',
-        'foto_mapel' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // Validasi gambar
-    ]);
+    // $request->validate([
+    //     'nama_mapel' => 'required|string|max:255',
+    //     'hari' => 'required|numeric',
+    //     'catatan' => 'required|integer',
+    //     'nama_guru' => 'required|string',
+    //     'foto_mapel' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', // Validasi gambar
+    // ]);
 
     // Cari produk yang akan diedit
     $mapel = Mapel::find($request->id);
@@ -108,7 +108,7 @@ public function editmapelproses(Request $request)
         }
 
         // Ambil file gambar
-        $foto_mapel = $request->file('foto_mapel');
+        $foto = $request->file('foto_mapel');
         
         // Tentukan nama file yang unik
         $fotoName = time() . '.' . $foto->getClientOriginalExtension();
