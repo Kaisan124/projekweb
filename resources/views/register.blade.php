@@ -43,7 +43,8 @@
             color: #555;
         }
 
-        .form-group input {
+        .form-group input,
+        .form-group select {
             width: 100%;
             padding: 10px;
             font-size: 14px;
@@ -53,7 +54,8 @@
             transition: border-color 0.3s;
         }
 
-        .form-group input:focus {
+        .form-group input:focus,
+        .form-group select:focus {
             border-color: #007bff;
         }
 
@@ -93,47 +95,69 @@
 <body>
     <div class="form-container">
         <h1>Daftar Akun</h1>
-        @if(session('pesan'))
-        <div class="alert alert-success">
-            {{session('pesan')}}
-        </div>
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
-        <form action="{{route('registerproses')}}" method="post">
+        @if(session('pesan'))
+    <div class="alert alert-success">
+        {{ session('pesan') }}
+    </div>
+@endif
+
+        <form action="{{ route('registerproses') }}" method="post">
             @csrf
-        <form>
+
             <div class="form-group">
                 <label for="username">Nama Pengguna</label>
                 <input type="text" id="username" name="username" placeholder="Masukkan nama pengguna" required>
             </div>
+
             <div class="form-group">
                 <label for="role">Role</label>
-                <input type="text" id="role" name="role" placeholder="Role" required>
+                <select id="role" name="role" required>
+                    <option value="">Pilih Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="siswa">Siswa</option>
+                </select>
             </div>
+
             <div class="form-group">
-                <label for="alamat">alamat </label>
-                <input type="text" id="alamat" name="alamat" placeholder="Masukkan alamat " required>
+                <label for="alamat">Alamat</label>
+                <input type="text" id="alamat" name="alamat" placeholder="Masukkan alamat" required>
             </div>
+
             <div class="form-group">
-                <label for="handphone">handphone </label>
-                <input type="text" id="handphone" name="handphone" placeholder="Masukkan handphone " required>
+                <label for="handphone">Handphone</label>
+                <input type="text" id="handphone" name="handphone" placeholder="Masukkan handphone" required>
             </div>
+
             <div class="form-group">
-                <label for="negara">negara </label>
-                <input type="text" id="negara" name="negara" placeholder="Masukkan negara " required>
+                <label for="negara">Negara</label>
+                <input type="text" id="negara" name="negara" placeholder="Masukkan negara" required>
             </div>
+
             <div class="form-group">
-                <label for="kota">kota </label>
-                <input type="text" id="kota" name="kota" placeholder="Masukkan kota " required>
+                <label for="kota">Kota</label>
+                <input type="text" id="kota" name="kota" placeholder="Masukkan kota" required>
             </div>
+
             <div class="form-group">
                 <label for="password">Kata Sandi</label>
                 <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required>
             </div>
-            
+
             <div class="form-group">
                 <button type="submit">Daftar</button>
             </div>
         </form>
+
         <div class="form-footer">
             Sudah punya akun? <a href="/">Masuk</a>
         </div>

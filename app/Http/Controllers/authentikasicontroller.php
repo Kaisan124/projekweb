@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Produk;
+use App\Models\Mapel;
 use Session;
 class authentikasicontroller extends Controller
 {
@@ -14,11 +16,29 @@ return view('register');
 
     }
     public function portal(){
-        return view('portal');
+        $jumlahProduk = Produk::count(); // Menghitung total produk
+        $jumlahMapel = Mapel::count(); // Menghitung total produk
+
+        return view('portal', compact('jumlahProduk','jumlahMapel'));
         
             }
     public function registerproses(Request $minta)
     {
+        $minta->validate([
+            'username' => 'required|string|unique:users,username',
+            'role' => 'required|string',
+            'password' => 'required|string',
+            'alamat' => 'required|string',
+            'handphone' => 'required|numeric',
+            'negara' => 'required|string', // Cek di tabel 'users' kolom 'negara'
+            'kota' => 'required|string',
+
+        ],
+        [
+            'username.unique' => 'username yang Anda masukkan sudah terdaftar. Silakan gunakan username lain.',
+        ]
+    );
+        
         $user = User::create([
             'username' => $minta->username,
             'role' => $minta->role,
@@ -47,8 +67,27 @@ return view('register');
 
     public function loginproses(Request $request)
     {
+        $request->validate([
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ], [
+            'username.required' => 'Nama username wajib diisi.',
+            'password.required' => 'Kata sandi wajib diisi.',
+        ]);
+    
+        // Cek apakah pengguna ada di database
+        $user = User::where('username', $request->username)->first();
+    
+        if (!$user) {
+            return redirect()->back()->with('error', 'username tidak ditemukan.');
+        }
+    
+        // Cek apakah password cocok
+        if (!password_verify($request->password, $user->password)) {
+            return redirect()->back()->with('error', 'Kata sandi salah. Silakan coba lagi.');
+        }
         $data = [
-            'negara' => $request->input('negara'),
+            'username' => $request->input('username'),
             'password' => $request->input('password'),
         ];
 
@@ -63,11 +102,11 @@ return view('register');
     public function logout()
     {
         Auth::logout();
-        return redirect('/login');
+        return redirect('/');
     }
     public function home()
     {
-        return view('home');
-    }
+      return view('home');
 
+}
 }

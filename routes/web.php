@@ -35,7 +35,7 @@ Route::get('home', [authentikasicontroller::class, 'home'])->name('home')->middl
 Route::get('portal', [authentikasicontroller::class, 'portal'])->name('portal')->middleware('auth','admin');
 
 
-Route::get('logout', [authentikasicontroller::class, 'logout'])->name('actionlogout')->middleware('auth');
+Route::get('logout', [authentikasicontroller::class, 'logout'])->name('logout')->middleware('auth');
 
 Route::get('produk', [produkcontroller::class, 'produk'])->name('produk')->middleware('auth','admin');
 
